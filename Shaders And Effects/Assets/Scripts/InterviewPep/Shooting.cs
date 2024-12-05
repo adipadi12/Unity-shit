@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
+    public List<GameObject> bulletPool;
     [SerializeField]
     private GameObject bullet;
     
