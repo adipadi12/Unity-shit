@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
         rb.MovePosition(rb.position + input * speed * Time.deltaTime);
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            rb.MovePosition(new Vector3(0f, 5f, 0f) );
+            rb.AddForce(Vector3.up * 500f );
             Debug.Log("Jump");
         }
     }
