@@ -49,7 +49,7 @@ public class RewindTime : MonoBehaviour
     }
     void Record()
     {
-        if(posRot.Count > Mathf.Round(5f/ Time.fixedDeltaTime)) //checking for points in time only till 5 seconds
+        if(posRot.Count > Mathf.Round(10f/ Time.fixedDeltaTime)) //checking for points in time only till 5 seconds
         { posRot.RemoveAt(posRot.Count - 1); }
         posRot.Insert(0, new PosRotStore(transform.position, transform.rotation)); //storing the position in the 0th index
     }

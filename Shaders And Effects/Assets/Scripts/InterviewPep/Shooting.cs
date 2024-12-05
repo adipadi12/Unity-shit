@@ -16,9 +16,16 @@ public class Shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0)){
+        if (Input.GetButtonDown("Fire1")){
             GameObject bulletInstance = Instantiate(bullet, bulletFiringPoint.position, bulletFiringPoint.rotation);
             bulletInstance.GetComponent<Rigidbody>().velocity = bulletFiringPoint.forward * bulletSpeed;  //direction * speed = velocity
+            StartCoroutine(DestroyBulletsAfterTime(bulletInstance, 1f));
         }
+    }
+
+    IEnumerator DestroyBulletsAfterTime(GameObject bulletInstance, float timeDestroy)
+    {
+        yield return new WaitForSeconds(timeDestroy);
+        Destroy(bulletInstance);
     }
 }
