@@ -5,17 +5,21 @@ using UnityEngine.UI;
 
 public class RandomColour : MonoBehaviour
 {
-    public Button colorButton;
     public GameObject target;
     // Start is called before the first frame update
-    void Start()
+    private void Update()
     {
-        colorButton.onClick.AddListener(ColorRandom);
+        ColorRandom();
     }
 
     // Update is called once per frame
     void ColorRandom()
     {
-        target.GetComponent<Renderer>().material.color = Random.ColorHSV();
+        if (Input.GetButtonDown("Fire1"))
+        {
+            target.GetComponent<Renderer>().material.color = Random.ColorHSV();
+        }
     }
+
+   
 }
